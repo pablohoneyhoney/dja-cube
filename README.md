@@ -1,4 +1,4 @@
-# Binnion Cube
+# DJA Cube
 
 Etching concepts for the tungsten cube behind the new Distinguished Janitor Award given in Eric Binnion's name at Automattic.
 
