@@ -63,12 +63,9 @@ nav button i{font-style:normal;color:var(--muted);margin-right:7px;font-variant-
 .hallmark{position:absolute;left:calc(var(--mm)*3);bottom:calc(var(--mm)*3);text-align:left;display:grid;gap:calc(var(--mm)*.6)}
 
 .views{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 18px;font-size:13px;color:var(--muted);margin-top:4px}
-.views button{appearance:none;background:none;border:0;padding:4px 0;margin:0;font:inherit;color:var(--soft);cursor:pointer;text-transform:capitalize}
-.views button:hover{color:var(--fg)}
+.views button{appearance:none;background:none;border:0;padding:4px 0;margin:0;font:inherit;color:#5c5e63;cursor:pointer;text-transform:capitalize}
+.views button:hover{color:var(--soft)}
 .views button:focus-visible{outline:1px solid var(--soft);outline-offset:3px}
-.views .hint{margin-left:auto}
-@media (max-width:480px){.views .hint{margin-left:0;flex-basis:100%}}
-.caption{margin:22px 0 0;font-size:15px;line-height:1.55;color:var(--soft);max-width:58ch}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:1.55;color:var(--muted);max-width:58ch}
 @media (prefers-reduced-motion:reduce){.cube.snap{transition:none}}
 </style>
@@ -77,7 +74,6 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 <div class="page">
   <header>
     <h1>Binnion Cube</h1>
-    <span>Three etchings for the award. Drag the cube to turn it.</span>
   </header>
 
   <nav role="tablist" aria-label="Concepts">
@@ -88,17 +84,14 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
   <section class="panel" role="tabpanel" id="panel-sides" aria-labelledby="tab-sides">
     <div class="stage" data-concept="sides"></div>
-    <p class="caption">Eric's work as a single band wrapping the four sides. Each bar is a month, January 2014 to September 2026, from his public GitHub history: 9,865 commits, pull requests and reviews. The small mark is his own DJA, February 2018. P2 posts sit below the baseline as a placeholder until we export them. The band ends where it ends.</p>
   </section>
 
   <section class="panel" role="tabpanel" id="panel-vault" aria-labelledby="tab-vault" hidden>
     <div class="stage" data-concept="vault"></div>
-    <p class="caption">His Obsidian graph, every note a dot, every link a hairline, wrapped over five faces like a globe on a cube map. No labels, so it gives nothing away, just the shape of how he thought. The graph in the mock is generated; the real one needs a link export from his machine.</p>
   </section>
 
   <section class="panel" role="tabpanel" id="panel-nameplate" aria-labelledby="tab-nameplate" hidden>
     <div class="stage" data-concept="nameplate"></div>
-    <p class="caption">One letter per side, Roboto Mono Bold. Award and recipient on top. Underneath: Nº 001 · 2026, "Chosen by Eric Binnion", Automattic · 2011 →. Needs nothing but the recipient's name, so it could go to the engraver this week.</p>
   </section>
 
   <footer>All three drawn at real scale for a 1.5" (38.1 mm) polished tungsten cube, about 1.07 kg, as one natural dark etch into the metal. "Recipient Name" is a placeholder.</footer>
@@ -256,7 +249,6 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
     const views=document.createElement('div'); views.className='views';
     for(const n of ORDER){ const b=document.createElement('button'); b.type='button'; b.textContent=n; b.dataset.view=n; views.appendChild(b); }
-    const hint=document.createElement('span'); hint.className='hint'; hint.textContent='Double-click to let it spin'; views.appendChild(hint);
     stage.appendChild(views);
 
     let rx=-26, ry=-34, idle=true, dragging=false, px=0, py=0;
